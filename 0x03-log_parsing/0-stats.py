@@ -1,4 +1,6 @@
-mport sys
+#!/usr/bin/python3
+
+import sys
 
 
 def print_msg(dict_sc, total_file_size):
