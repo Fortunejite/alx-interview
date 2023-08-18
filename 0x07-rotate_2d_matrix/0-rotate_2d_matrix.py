@@ -1,18 +1,26 @@
-from typing import List
+#!/usr/bin/python3
+"""
+Rotate 2D Matrix
+"""
 
-def swap_items(matrix, i, j):
-    temp = matrix[i][j]
-    matrix[i][j] = matrix[j][i]
-    matrix[j][i] = temp
 
-def rotate_2d_matrix(matrix: List[List[int]]):
+def rotate_2d_matrix(matrix):
+    """rotate two dimension matrix 90 degrees clockwise
+    Args:
+        matrix (list[[list]]): a matrix
+    """
     n = len(matrix)
-    
-    # Transpose the matrix (swap rows with columns)
-    for i in range(n):
-        for j in range(i + 1, n):  # Avoid swapping diagonal elements
-            swap_items(matrix, i, j)
-    
-    # Reverse each row of the transposed matrix
-    for i in range(n):
-        matrix[i].reverse()
+    for i in range(int(n / 2)):
+        y = (n - i - 1)
+        for j in range(i, y):
+            x = (n - 1 - j)
+            # current number
+            tmp = matrix[i][j]
+            # change top for left
+            matrix[i][j] = matrix[x][i]
+            # change left for bottom
+            matrix[x][i] = matrix[y][x]
+            # change bottom for right
+            matrix[y][x] = matrix[j][y]
+            # change right for top
+            matrix[j][y] = tmp
