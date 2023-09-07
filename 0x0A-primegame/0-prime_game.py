@@ -22,6 +22,7 @@ def is_prime(n):
         i += 6
     return True
 
+
 def play_round(n):
     """
     Simulate a single round of the game for a given n.
@@ -45,6 +46,7 @@ def play_round(n):
         maria_turn = not maria_turn
     return "Maria" if maria_turn else "Ben"
 
+
 def isWinner(x, nums):
     """
     Determine the winner of multiple rounds of the game.
@@ -54,7 +56,7 @@ def isWinner(x, nums):
         nums (list): A list of integers representing n for each round.
 
     Returns:
-        str or None: The name of the player with the most wins (Maria or Ben), or None if it's a tie.
+        str or None: The name of the player
     """
     maria_wins = 0
     ben_wins = 0
@@ -72,4 +74,3 @@ def isWinner(x, nums):
         return "Ben"
     else:
         return None
-
