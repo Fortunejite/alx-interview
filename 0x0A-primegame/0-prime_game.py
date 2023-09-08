@@ -31,7 +31,7 @@ def play_round(n):
         n (int): The number for the current round.
 
     Returns:
-        str: The name of the winner (Maria or Ben).
+        str: The name of the winner (Maria or Ben) (the winner).
     """
     maria_turn = True
     while n > 1:
