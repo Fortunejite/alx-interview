@@ -1,1 +1,1 @@
-#The prime number game
+# 0x0A-primegame
