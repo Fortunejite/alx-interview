@@ -1,5 +1,50 @@
 #!/usr/bin/python3
-"""0. Prime Game - Maria and Ben are playing a game"""
+def is_prime(n):
+    """
+    Check if a number n is prime.
+
+    Args:
+        n (int): The number to check for primality.
+
+    Returns:
+        bool: True if n is prime, False otherwise.
+    """
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i = 5
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+
+def play_round(n):
+    """
+    Simulate a single round of the game for a given n.
+
+    Args:
+        n (int): The number for the current round.
+
+    Returns:
+        str: The name of the winner (Maria or Ben).
+    """
+    maria_turn = True
+    while n > 1:
+        prime_found = False
+        for i in range(2, n + 1):
+            if is_prime(i) and n % i == 0:
+                n -= i
+                prime_found = True
+                break
+        if not prime_found:
+            break
+        maria_turn = not maria_turn
+    return "Maria" if maria_turn else "Ben"
 
 
 def isWinner(x, nums):
